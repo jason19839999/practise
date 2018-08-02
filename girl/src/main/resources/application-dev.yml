@@ -1,0 +1,12 @@
+server:
+    port: 8089
+    servlet:
+           context-path: /api
+girl:
+  cupSize: GGG
+  age: 38
+  content: 手感好
+
+
+
+

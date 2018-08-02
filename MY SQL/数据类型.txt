@@ -1,0 +1,35 @@
+数据库设计&存储过程&函数 时参照
+                                 
+整型：
+TINYINT      1   0-255
+SMALLINT     2   0-655535
+MEDIUMINT    3   0-16777215
+INT          4   0-4294967295
+BIGINT       8   0-18446744073709551615
+
+浮点型：
+FLOAT[(M,D)]    精确到7位小数
+DOUBLE[(M,D)]
+
+日期时间型：1000-01-01 到 9999-12-31
+YEAR              1
+TIME              3
+DATE              3
+DATETIME          8
+TIMESTAMP         4
+
+字符类型：
+CHAR(M)         0-255
+VARCAHR(M)      0-65535
+TINYTEXT
+TEXT
+MEDIUMTEXT
+LONGTEXT
+ENUM('value1','value2',...)  
+     只能选择其中一个  0-65535个
+SET('value1','value2',...)   
+     它是集合，里面值任意排列组合   最多64个成员
+
+
+
+

@@ -1,0 +1,73 @@
+> mysql -uroot -proot -P3306 -h127.0.0.1  ：登录MYSQL
+  
+关键字都大写    CREATE/UPDATE/SELECT/INSERT/DELETE
+表明都小写      tdb_goods/tdb_goods_brands
+
+SHOW DATABASES                            ：查看数据库
+
+USE dbname                                ：打开数据库   
+
+SELECT DATABASE();                        ：查看当前是哪个数据库      
+
+CREATE TABLE province (                   ：创建表
+id SMALLINT UNSIGNED PRIMARY 
+            KEY AUTO_INCREMENT,
+pname VARCHAR(30) NOT NULL
+)
+
+SHOW TABLES [FROM db_name]                ：查看数据表
+
+SHOW COLUMNS FROM tb1                     ：查看列结构
+
+SHOW CREATE TABLE users;                  ：查看表结构
+
+SHOW INDEX FROM province \G;              ：查看索引
+
+CREATE TABLE tdb_goods_brands (           ：多表更新        
+ id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+ brandname VHARCHAR(30) NOT NULL
+)
+SELECT brandname FROM tdb_goods GROUP BY pname
+
+UPDATE tdb_goods g INNER JOIN tdb_goods_barnds b   
+   ON g.brandname = b.brandname
+   SET g.brandname = b.brandid WHERE ... 同步完数据之后要改列类为SMALLINT
+
+INNER     JOIN                                          ：连接查询
+LEFT      JOIN
+RIGHT     JOIN
+
+无限级分类表：
+①参照子类
+select s.type_id, s.type_name, p.type_name, p.parent_id   ：自连接
+from tdb_goods_types s  
+LEFT JOIN tdb_goods_types p
+on s.parent_id = p.type_id   
+where s.status = 0
+
+②参照父类
+select p.type_id, p.type_name ,s.typ_name
+FROM tdb_goods_types p
+LEFT JOIN tdb._goods_type s
+on s.parent_id = p.type_id   
+where s.status = 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

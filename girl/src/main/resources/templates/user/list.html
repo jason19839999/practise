@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th=http://www.thymeleaf.org></html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>用户列表</title>
+</head>
+<body>
+<h2>用户列表</h2>
+<div>
+    <ul>
+        <li th:each="user:${users}">
+            <span th:text="${user.userId}"></span>-
+            <span th:text="${user.name}"></span>-
+            <span th:text="${user.age}"></span>-
+            <span th:text="${user.address}"></span>
+        </li>
+    </ul>
+    <input type="button" value="Submit" onclick="submitInfo()">
+    <input type="button" value="Add" onclick="add()">
+    <div>
+        <img th:src="@{/js/img/jishu.png}"/>
+
+    </div>
+</div>
+</body>
+
+
+<script th:src="@{/js/jquery-1.10.2.js}"></script>
+<script type="text/javascript">
+
+    $(function () {
+
+    })
+
+    //构造json对象
+    //var params = "{ \"userId\":" + 1 + ", \"userName\":" + "\"" + "username" + "\"" + ", \"sessionId\":" + "\"" + "aaabbbccc" + "\"" + " }";
+    var param = {
+        userId: 1,
+        userName: "张三",
+        sessionId: "AEI234LASJFAO098ALJJFA"
+    };
+    var params = [];
+    params.push(param);
+    params.push(param);
+    params.push(param);
+
+    //转换成json
+    var jstring = JSON.stringify(params)
+
+    function submitInfo() {
+
+        $.ajax({
+            url: "/api/dealUserInfo/addUserInfo",
+            contentType: 'application/json;charset=utf-8', //这个需要加上，否则会报错
+            type: 'POST',
+            data: jstring,
+            dataType: 'json',
+            success: function (result) {
+                if (result.data.length > 0) {
+                    alert(result.data[0].sessionId + "--- Count = " + result.data.length);
+                }
+
+            }
+        });
+
+    }
+
+    function add() {
+
+        window.location.href = '/api/user/add';
+
+    }
+
+
+</script>
+
+</html>

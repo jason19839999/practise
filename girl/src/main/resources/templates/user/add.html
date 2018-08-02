@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th=http://www.thymeleaf.org></html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>添加用户</title>
+</head>
+<body>
+
+<div>
+    <form action="#" th:action="@{/user/dopayin}" th:object="${obj}" method="post">
+        <div>
+
+            <label for="userId">用户id</label>
+            <input type="text" id="userId" placeholder="用户id" th:field="*{userId}"/>
+
+            <label for="name">名字</label>
+            <input type="text" id="name" placeholder="名字" th:field="*{name}"/>
+
+            <label for="age">年龄</label>
+            <input type="text" id="age" placeholder="年龄" th:field="*{age}"/>
+
+            <label for="address">地址</label>
+            <input type="text" id="address" placeholder="地址" th:field="*{address}"/>
+
+            <input type="submit" value="提  交"/>
+        </div>
+    </form>
+</div>
+</body>
+
+
+<script th:src="@{/js/jquery-1.10.2.js}"></script>
+<script type="text/javascript">
+
+    $(function () {
+
+    })
+
+
+    function add() {
+        $.ajax({
+            url: "/api/dealUserInfo/add",
+            contentType: 'application/json;charset=utf-8', //这个需要加上，否则会报错
+            type: 'POST',
+            data: "",
+            dataType: 'json',
+            success: function (result) {
+                //alert(result)
+                //增加跳转功能
+                window.location.href = "/api/user/list?id=" + 100;
+
+            }
+        });
+    }
+
+
+</script>
+
+</html>

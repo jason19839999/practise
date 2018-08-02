@@ -1,0 +1,22 @@
+基本数据类型   ：byte short int long
+引用类型       ：接口、类、
+Final常量定义  ：final String SEX_MAN = '男';
+算术运算符
+赋值运算符
+比较运算符
+逻辑运算符  (<=、>=)
+条件运算符 （布尔表达式? 表达式1:表达式2）
+
+布尔转String   ：String.valueOf(布尔类型)
+switch         ：后面小括号中表达式的值必须是整型或字符型
+for循环        ：注意一下嵌套循环
+
+
+Arrays         ：使用 Arrays 类操作 Java 中的数组
+                 import  java.util.Arrays; Arrays.sort(数组名); 
+                                              Arrays.toString(数组名)
+  
+foreach        ：使用 foreach 操作数组
+                 foreach (元素类型  元素变量 : 遍历对象) {执行代码}
+
+

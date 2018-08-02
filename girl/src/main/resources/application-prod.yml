@@ -1,0 +1,17 @@
+server:
+    port: 8082
+    servlet:
+           context-path: /api
+girl:
+  cupSize: BBB
+  age: 22
+  content: 手感一般，但是紧实
+
+
+
+
+
+
+
+
+

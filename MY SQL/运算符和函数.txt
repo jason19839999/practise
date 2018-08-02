@@ -1,0 +1,82 @@
+字符函数：注意：字符串下标从1开始
+
+CONCAT('AA','BB','CC')                   ：字符连接
+
+CONCAT_WS('指定分隔符'，'AA','BB','CC')  ：使用指定的分隔符进行字符串连接
+
+FORMAT(12560,75,<num>)                   ：数字格式化
+  num 0：取整  1：保留一位小数 2：保留2位小数
+LOWER()                    转换为小写字母
+
+UPPER()                    转换为大写字母
+
+LEFT('mySQL',2)  →my                     ：从左边截取几位
+
+RIGHT('mySQL',3) →SQL                    ：从右边截取几位
+
+LENGTH()           获取字符串长度
+
+RTRIM()            去右边空格
+
+LTRIM()            去左边空格
+   
+TRIM()             去掉两边空格
+
+TRIM(LEADING '?' FROM '??MYSQL???') → MYSQL???
+TRIM(TRAILING '?' FROM '??MYSQL???')→ ??MYSQL
+TRIM(BOTH     '?' FROM '??MYSQL???')→ MYSQL
+
+REPLACE('??MY???SQL???','?','')   替换，可以多个替换
+
+SUBSTRING('MYSQL',1,2)  →MY
+
+SUBSTRING('MYSQL',3)    →SQL
+
+SUBSTRING('MYSQL',-1)   →L   从右边开始数，-1，-2，-3
+
+SUBSTRING('MYSQL',-3)   →SQL
+
+[NOT] LIKE       匹配字符函数   %：代表任意个字符   _：代表任意一个字符
+
+特殊情况：查找含有 % 的字段 
+
+字段名 like '%1%%'  ESCAPE '1' 告诉mysql后面的%不需要是通配符了，就是%。
+
+
+
+数值运算符和函数：
+
+CEIL()      ：向上取整
+DIV         ：整数除法
+FLOOR()     ：向下取整
+MOD         ：取余数
+POWER()     ：幂运算
+ROUND()     ：四舍五入
+TRUNCATE()  ：数字截取
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
