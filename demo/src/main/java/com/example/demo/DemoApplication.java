@@ -15,7 +15,8 @@ import java.util.Locale;
 public class DemoApplication {
 
     public static void main(String[] args) throws ParseException, UnsupportedEncodingException {
-        String aes = "1043";
+        //如果加密之后有'/',需要在传递之前URLEncoder，之后再用，接收到之后URLDecoder，解密操作。
+        String aes = "1021";
         String key ="test201812345678";
         String encyt = null;
         try {
