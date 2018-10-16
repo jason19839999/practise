@@ -3,13 +3,36 @@ package com.example.demo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
+import java.util.Locale;
 
 @SpringBootApplication
 public class DemoApplication {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException, UnsupportedEncodingException {
+        String aes = "1043";
+        String key ="test201812345678";
+        String encyt = null;
+        try {
+            encyt = AES.AESEncrypt(aes,key);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        encyt =  URLEncoder.encode(encyt,"utf-8");
+        encyt = URLDecoder.decode(encyt,"utf-8");
+        String decryt = null;
+        try {
+            decryt = AES.AESDecrypt(encyt,key);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         String tmp ="";
         String obj ="201711";
         tmp = obj.substring(0,4) + "年" + obj.substring(4,6) + "月";
@@ -31,8 +54,14 @@ public class DemoApplication {
             header ="";
         }
 
+        String[] douhao = "1,6,60".split(",");
         String[] vs = "1.6.60".split("\\.");
         String[] versions = "1.7.56".split("\\.");
+
+        String strDate = "Wed Aug 08 05:28:44 +0800 2018";
+
+        Date date = parse(strDate, "EEE MMM dd HH:mm:ss Z yyyy");
+
 
         Date now = new Date();
         long millis = now.getTime();
@@ -45,5 +74,10 @@ public class DemoApplication {
     }
 
 
-
+    public static Date parse(String strDate, String pattern)
+            throws ParseException
+    {
+        return (strDate == null || strDate.length() == 0) ? null : new SimpleDateFormat(
+                pattern, Locale.US).parse(strDate);
+    }
 }
