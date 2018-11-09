@@ -40,6 +40,7 @@ public class DemoApplication {
             regexOfMap = null;
         }
 
+        int indexOf = "美股宏观".indexOf("美股");
 
         //如果加密之后有'/',需要在传递之前URLEncoder，之后再用，接收到之后URLDecoder，解密操作。
         String aes = "1021";
@@ -50,7 +51,7 @@ public class DemoApplication {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        int indexOf = "美股宏观".indexOf("美股");
+
         encyt =  URLEncoder.encode(encyt,"utf-8");
         encyt = URLDecoder.decode(encyt,"utf-8");
         String decryt = null;
@@ -89,14 +90,11 @@ public class DemoApplication {
 
         Date date = parse(strDate, "EEE MMM dd HH:mm:ss Z yyyy");
 
-
         Date now = new Date();
         long millis = now.getTime();
         System.out.println(millis);
 
         SpringApplication.run(DemoApplication.class, args);
-
-
 
     }
 
