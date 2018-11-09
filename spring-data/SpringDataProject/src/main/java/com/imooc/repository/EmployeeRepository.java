@@ -1,5 +1,6 @@
 package com.imooc.repository;
 
+import antlr.collections.List;
 import com.imooc.domain.Employee;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -7,7 +8,6 @@ import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.RepositoryDefinition;
 import org.springframework.data.repository.query.Param;
 
-import java.util.List;
 
 
 @RepositoryDefinition(domainClass = Employee.class, idClass = Integer.class)
@@ -16,7 +16,7 @@ public interface EmployeeRepository { //extends Repository<Employee,Integer>{
     public Employee findByName(String name);
 
     // where name like ?% and age <?
-    public List<Employee> findByNameStartingWithAndAgeLessThan(String name, Integer age);
+    public java.util.List<Employee> findByNameStartingWithAndAgeLessThan(String name, Integer age);
 
     // where name like %? and age <?
     public List<Employee> findByNameEndingWithAndAgeLessThan(String name, Integer age);
@@ -47,7 +47,7 @@ public interface EmployeeRepository { //extends Repository<Employee,Integer>{
 
     @Modifying
     @Query("update Employee o set o.age = :age where o.id = :id")
-    public void update(@Param("id")Integer id, @Param("age")Integer age);
+    public void update(@Param("id")int id, @Param("age")int age);
 
 
 

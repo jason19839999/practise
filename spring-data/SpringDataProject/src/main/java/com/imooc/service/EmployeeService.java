@@ -13,7 +13,7 @@ public class EmployeeService {
     private EmployeeRepository employeeRepository;
 
     @Transactional
-    public void update(Integer id, Integer age) {
+    public void update(int id, int age) {
         employeeRepository.update(id, age);
     }
 
