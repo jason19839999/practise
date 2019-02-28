@@ -43,6 +43,8 @@ public class RequestLogAspect {
     public void doAfterReturning(Object object) {
         //处理逻辑
         Object obj = object;
+        String result =  JSONObject.toJSONString(object);
+        result = "";
     }
 
 
