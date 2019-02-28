@@ -20,6 +20,21 @@ public class DemoApplication {
     private static Pattern ostock = Pattern.compile("(?<=【).*?(?=】)");
 
     public static void main(String[] args) throws ParseException, UnsupportedEncodingException {
+
+        StaticSynchronized ss = new StaticSynchronized();
+        StaticSynchronized ss2 = new StaticSynchronized();
+        StaticSynchronized ss3 = new StaticSynchronized();
+
+//        new Thread(ss).start();
+//        new Thread(ss).start();
+//        new Thread(ss).start();
+
+        new Thread(ss).start();
+        new Thread(ss2).start();
+        new Thread(ss3).start();
+
+
+
         Integer i = new Integer(100);
         Integer i2 = new Integer(100);
         Integer j = 100;
@@ -31,6 +46,11 @@ public class DemoApplication {
         String[] douhao = "1,6,60".split(",");
         String[] vs = "1.6.60".split("\\.");
         String[] versions = "1.7.56".split("\\.");
+
+        boolean isCurrent = false;
+        if(isCurrent ==  false){
+            isCurrent = true;
+        }
 
         String strDate = "Wed Aug 08 05:28:44 +0800 2018";
         Date date = parse(strDate, "EEE MMM dd HH:mm:ss Z yyyy");
