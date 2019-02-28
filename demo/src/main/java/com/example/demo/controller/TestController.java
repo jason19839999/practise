@@ -29,6 +29,15 @@ public class TestController {
 class Params{
 
     private String token;
+    private String login_name;
+
+    public String getLogin_name() {
+        return login_name;
+    }
+
+    public void setLogin_name(String login_name) {
+        this.login_name = login_name;
+    }
 
     public String getToken() {
         return token;
