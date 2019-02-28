@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.aspect.Servicelock;
+import com.example.demo.aspect.RequestLog;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class TestController {
 
-    @Servicelock
+    @RequestLog
     @GetMapping("/getMsg")
     public String getMsg(@RequestParam("token") String token){
         return token;
     }
 
-    @Servicelock
+    @RequestLog
     @PostMapping("/getMsg2")
     public String getMsg2(@RequestBody Params params){
         return params.getToken();

@@ -18,10 +18,10 @@ import java.io.IOException;
 @Aspect
 @Order(10000)
 //order越小越是最先执行，但更重要的是最先执行的最后结束。order默认值是2147483647
-public class ServicelockAspect {
+public class RequestLogAspect {
 
 
-    @Before(value = "@annotation(com.example.demo.aspect.Servicelock)")
+    @Before(value = "@annotation(com.example.demo.aspect.RequestLog)")
     public void before(JoinPoint joinPoint) throws IOException {
         //处理逻辑
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
@@ -39,7 +39,7 @@ public class ServicelockAspect {
 
     }
 
-    @AfterReturning(returning = "object", value = "@annotation(com.example.demo.aspect.Servicelock)")
+    @AfterReturning(returning = "object", value = "@annotation(com.example.demo.aspect.RequestLog)")
     public void doAfterReturning(Object object) {
         //处理逻辑
         Object obj = object;
