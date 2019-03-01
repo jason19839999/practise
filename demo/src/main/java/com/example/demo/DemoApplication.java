@@ -1,6 +1,8 @@
 package com.example.demo;
 
 import com.example.demo.filter.VersionFilter;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -21,6 +23,7 @@ public class DemoApplication {
 
     private static Pattern astock = Pattern.compile("(?<=《).*?(?=》)");
     private static Pattern ostock = Pattern.compile("(?<=【).*?(?=】)");
+    private static final Log BUSINESS_LOG = LogFactory.getLog("BUSINESS.ASYNC");
 
     public static void main(String[] args) throws ParseException, UnsupportedEncodingException {
 
@@ -57,7 +60,7 @@ public class DemoApplication {
 
         String strDate = "Wed Aug 08 05:28:44 +0800 2018";
         Date date = parse(strDate, "EEE MMM dd HH:mm:ss Z yyyy");
-
+        BUSINESS_LOG.info("OK le ---------------------------------------------OK le");
         SpringApplication.run(DemoApplication.class, args);
 
     }

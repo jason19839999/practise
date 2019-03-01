@@ -1,0 +1,15 @@
+server:
+  port: 8089
+logging:
+  config: classpath:logback-spring.xml # 不要删除，启动时logback-spring.xml能加载到application.yml中的变量
+
+spring:
+  application:
+    name: BB
+  profiles:
+    active: dev
+
+info:
+  groupId: "@project.groupId@"
+  artifactId: "@project.artifactId@"
+  version: "@project.version@"
