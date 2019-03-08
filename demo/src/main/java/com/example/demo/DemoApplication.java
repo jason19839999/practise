@@ -58,6 +58,22 @@ public class DemoApplication {
             isCurrent = true;
         }
 
+        Map<String,Object> maps = new HashMap<String,Object>(100000000);
+        for(int count =0;count<10000000;count++){
+            maps.put(String.valueOf(count),  UUID.randomUUID().toString().replace("-", ""));
+        }
+
+        Set<String> sets = new HashSet<String>(100000000);
+
+        Set<Map.Entry<String, Object>> set1 = maps.entrySet();
+        Iterator<Map.Entry<String, Object>> iterator1 = set1.iterator();
+        while (iterator1.hasNext()) {
+            Map.Entry<String, Object> entry = iterator1.next();
+            sets.add(String.valueOf(entry.getValue()));
+        }
+
+        int count = sets.size();
+
         String strDate = "Wed Aug 08 05:28:44 +0800 2018";
         Date date = parse(strDate, "EEE MMM dd HH:mm:ss Z yyyy");
         BUSINESS_LOG.info("OK le ---------------------------------------------OK le");
