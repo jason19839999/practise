@@ -58,12 +58,12 @@ public class DemoApplication {
             isCurrent = true;
         }
 
-        Map<String,Object> maps = new HashMap<String,Object>(100000000);
-        for(int count =0;count<10000000;count++){
+        Map<String,Object> maps = new HashMap<String,Object>(10000000);
+        for(int count =0;count<8000000;count++){
             maps.put(String.valueOf(count),  UUID.randomUUID().toString().replace("-", ""));
         }
 
-        Set<String> sets = new HashSet<String>(100000000);
+        Set<String> sets = new HashSet<String>(10000000);
 
         Set<Map.Entry<String, Object>> set1 = maps.entrySet();
         Iterator<Map.Entry<String, Object>> iterator1 = set1.iterator();
