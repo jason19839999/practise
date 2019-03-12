@@ -1,7 +1,7 @@
 server:
   port: 8089
 logging:
-  config: classpath:logback-spring.xml # ²»ÒªÉ¾³ý£¬Æô¶¯Ê±logback-spring.xmlÄÜ¼ÓÔØµ½application.ymlÖÐµÄ±äÁ¿
+  config: classpath:logback-spring.xml # ï¿½ï¿½ÒªÉ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±logback-spring.xmlï¿½Ü¼ï¿½ï¿½Øµï¿½application.ymlï¿½ÐµÄ±ï¿½ï¿½ï¿½
 
 spring:
   application:
@@ -13,3 +13,5 @@ info:
   groupId: "@project.groupId@"
   artifactId: "@project.artifactId@"
   version: "@project.version@"
+
+# nohup java -Xms512M -Xmx512M -jar /opt/app/product-shop.jar --spring.profiles.active=pro
