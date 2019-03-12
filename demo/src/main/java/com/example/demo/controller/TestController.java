@@ -1,8 +1,13 @@
 package com.example.demo.controller;
 
 import com.example.demo.aspect.RequestLog;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 
 /**
@@ -23,16 +28,32 @@ public class TestController {
 
     @RequestLog
     @PostMapping("/getMsg2")
-    public Params getMsg2(@RequestBody Params params){
+    public Params getMsg2(@RequestBody @Valid  Params params, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            for (ObjectError error : bindingResult.getAllErrors()) {
+                System.out.println(error.getDefaultMessage());
+            }
+        }
         return params;
     }
 }
 
 class Params{
 
+    @NotNull
     private String token;
     private String login_name;
     private ArrayList list;
+    @Min(10)
+    private int count;
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
 
     public ArrayList getList() {
         return list;
