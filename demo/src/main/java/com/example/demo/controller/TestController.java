@@ -34,6 +34,7 @@ public class TestController {
                 System.out.println(error.getDefaultMessage());
             }
         }
+        String errorMsg = bindingResult.getFieldError().getDefaultMessage();
         return params;
     }
 }

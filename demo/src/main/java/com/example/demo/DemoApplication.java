@@ -60,7 +60,7 @@ public class DemoApplication {
 
         //测试UUID.randomUUID的重复性
         Map<String,Object> maps = new HashMap<String,Object>(10000000);
-        for(int count =0;count<8000000;count++){
+        for(int count =0;count<80000;count++){
             maps.put(String.valueOf(count),  UUID.randomUUID().toString().replace("-", ""));
         }
         Set<String> sets = new HashSet<String>(10000000);
