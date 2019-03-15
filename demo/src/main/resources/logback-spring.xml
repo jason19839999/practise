@@ -59,7 +59,7 @@
     <!-- 不同环境输出不同级别的日志 -->
     <springProfile name="dev">
         <root level="INFO">
-            <!--<appender-ref ref="CONSOLE"/>-->
+            <appender-ref ref="CONSOLE"/>
             <appender-ref ref="FILE"/>
         </root>
         <!--<logger name="tk.mybatis" level="DEBUG"/>-->
