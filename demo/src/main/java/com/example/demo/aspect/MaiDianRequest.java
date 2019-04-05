@@ -20,11 +20,10 @@ import org.springframework.stereotype.Component;
 public class MaiDianRequest {
 
     @Around(value = "@annotation(com.example.demo.aspect.MaiDaianRequest)")
-    public  Object around(ProceedingJoinPoint joinPoint) throws InterruptedException {
+    public Object around(ProceedingJoinPoint joinPoint) throws InterruptedException {
         Object obj = null;
         try {
             obj = joinPoint.proceed();
-           Object [] objects = joinPoint.getArgs();
         } catch (Throwable e) {
             e.printStackTrace();
         }
