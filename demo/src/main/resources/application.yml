@@ -1,0 +1,17 @@
+server:
+  port: 8089
+logging:
+  config: classpath:logback-spring.xml # ��Ҫɾ��������ʱlogback-spring.xml�ܼ��ص�application.yml�еı���
+
+spring:
+  application:
+    name: BB
+  profiles:
+    active: dev
+
+info:
+  groupId: "@project.groupId@"
+  artifactId: "@project.artifactId@"
+  version: "@project.version@"
+
+# nohup java -Xms512M -Xmx512M -jar /opt/app/product-shop.jar --spring.profiles.active=pro

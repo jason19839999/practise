@@ -17,7 +17,7 @@ import java.util.*;
  * @修改人和其它信息
  */
 @RestController
-public class TestController {
+public class MaiDianController {
 
     @MaiDaianRequest()
     @GetMapping("/search")
