@@ -1,5 +1,7 @@
 package com.example.demo.aspect;
 
+import com.alibaba.fastjson.JSONObject;
+import com.example.demo.Response.ResponseDto;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -24,6 +26,11 @@ public class MaiDianRequest {
         Object obj = null;
         try {
             obj = joinPoint.proceed();
+            String json = JSONObject.toJSONString(obj);//将java对象转换为json对象
+            JSONObject jsonObject = JSONObject.parseObject(json);
+            JSONObject data = jsonObject.getJSONObject("data");
+            String total = data.getString("total");
+            total = "";
         } catch (Throwable e) {
             e.printStackTrace();
         }
